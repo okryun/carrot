@@ -16,7 +16,7 @@ export default function Login() {
 
   return (
     <div>
-      <div className="w-full text-center p-4 text-5xl">🦄</div>
+      <div className="w-full text-center p-4 text-4xl">🔥</div>
       <form action={formAction} className="flex flex-col gap-3">
         <FormInput
           name="email"
