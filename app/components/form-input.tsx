@@ -3,7 +3,7 @@ interface FormInputProps {
   placeholder: string;
   type: string;
   required: boolean;
-  errors: string[];
+  errors?: string[];
   name: string;
 }
 
@@ -12,7 +12,7 @@ export default function FormInput({
   placeholder,
   type,
   required,
-  errors,
+  errors = [],
   name,
 }: FormInputProps) {
   return (
@@ -23,14 +23,14 @@ export default function FormInput({
           type={type}
           placeholder={placeholder}
           required={required}
-          className="pl-20 w-full outline-none ring-1 focus:ring-2 focus:ring-gray-400 ring-neutral-300 border-orange-100"
+          className="pl-10 p-3 m-1 w-full outline-none ring-1 focus:ring-2 focus:ring-gray-400 ring-neutral-300 border-orange-100"
         />
         {icon}
       </div>
       {errors.map((error, index) => (
-        <span key={index} className="text-red-500">
+        <div key={index} className="text-red-500 font-semibold text-sm m-1.5">
           {error}
-        </span>
+        </div>
       ))}
     </div>
   );

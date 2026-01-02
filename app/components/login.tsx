@@ -10,7 +10,7 @@ import { handleForm } from "../login/actions";
 
 export default function Login() {
   const [state, formAction] = useActionState(handleForm, {
-    errors: [],
+    fieldErrors: {},
     success: false,
   });
 
@@ -26,7 +26,7 @@ export default function Login() {
           placeholder="Email"
           type="text"
           required={true}
-          errors={[]}
+          errors={state.fieldErrors?.email}
         />
         <FormInput
           name="username"
@@ -36,7 +36,7 @@ export default function Login() {
           placeholder="Username"
           type="text"
           required={true}
-          errors={[]}
+          errors={state.fieldErrors?.username}
         />
         <FormInput
           name="password"
@@ -46,7 +46,7 @@ export default function Login() {
           placeholder="Password"
           type="password"
           required={true}
-          errors={state.errors ?? []}
+          errors={state.fieldErrors?.password}
         />
         <FormButton text={"Log in"} />
         {state.success && (
